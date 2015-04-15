@@ -1,5 +1,7 @@
 class Comment < ActiveRecord::Base
-  belongs_to :article
-  validates :commenter, presence: true
-  validates :body, presence: true
+  	
+  	belongs_to :article
+  	validates :commenter, presence: true
+  	validates :email, presence: true
+  	validates :body, presence: true
 end

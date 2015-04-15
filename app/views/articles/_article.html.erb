@@ -1,0 +1,13 @@
+<%= div_for article do %>
+    <h2>
+        <%= link_to article.title, article %>
+    </h2>
+    <div>
+    	<%= article.text %>
+    </div>	
+    <p><i><%= article.published_at.to_s(:post) %></i></p>
+    <div>
+        <%= link_to 'Edit', edit_article_path(article), class: 'btn btn-default' %>
+        <%= link_to 'Destroy', article_path(article), method: :delete, data: {confirm: 'Are you sure?' }, class: 'btn btn-default' %>
+    </div>    
+<% end %>

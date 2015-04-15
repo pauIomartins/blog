@@ -1,19 +1,7 @@
 <h1>Listing articles</h1>
-  <% @articles.each do |article| %>
-  <div>
-    <h2><%= article.title %></h2>
-    <div>
-      <%= article.text %>
-    </div>  
-    <p>
-      <%= article.published_at.to_s(:post) %>
-    </p>    
-    <div>
-      <%= link_to 'Show', article_path(article), class: 'btn btn-default' %>
-      <%= link_to 'Edit', edit_article_path(article), class: 'btn btn-default' %>
-      <%= link_to 'Destroy', article_path(article), method: :delete, data: {confirm: 'Are you sure?' }, class: 'btn btn-default' %>
-    </div>  
-  </div>
-<% end %>
+
+<div>
+    <%= render @articles%>
+</div>
+    
 <%= link_to 'New article', new_article_path, class: 'btn btn-default' %>
-</table>

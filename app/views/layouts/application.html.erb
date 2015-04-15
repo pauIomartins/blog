@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Blog</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  </head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blog</title>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    </head>
 <body>
-  <div id="main-container" class="container">
-    <%= yield %>
-  </div>
-  
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>  
+    <div id="main-container" class="container">
+    	<%= content_tag :p, notice, :class => 'notice' if notice.present? %>
+    	<%= content_tag :p, alert, :class => 'alert' if alert.present? %>
+
+        <%= yield %>
+    </div>
+    
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>    
 </body>
 </html>

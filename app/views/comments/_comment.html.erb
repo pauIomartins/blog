@@ -1,12 +1,11 @@
-<blockquote>
-  <strong>Comment:</strong>
-  <%= comment.body %>
-  <footer>Commenter: <%= comment.commenter %></footer>
-</blockquote>
+<%= div_for comment do %>
+    
+	<h4>
+		<i><%= comment.commenter %> &lt;<%= comment.email %>&gt; said:</i>>
+		<span class='actions'>
+			<%= link_to 'Delete', [@article, comment], :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-default' %>
+		</span>
+	</h4>
 
-<p>
-  <%= link_to 'Destroy Comment', [comment.article, comment], 
-              method: :delete, 
-              data: { confirm: 'Are you sure?' },
-              class: 'btn btn-default' %>
-</p> 
+	<%= comment.body %>
+<% end %>
